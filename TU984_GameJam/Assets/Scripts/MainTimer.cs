@@ -9,13 +9,13 @@ public class MainTimer : MonoBehaviour
 
     public float targetTime;
 
-    public bool miniEnded;
+    public bool miniStart;
 
     public GameObject miniGame;
 
     void Start()
     {
-        miniEnded = false;
+        miniStart = false;
         targetTime = mainTime;
     }
 
@@ -24,27 +24,29 @@ public class MainTimer : MonoBehaviour
     {
         targetTime -= Time.deltaTime;
 
-        if(targetTime <= -0.1f)
+        if (targetTime <= -0.1f && miniStart == false)
         {
-            miniGameStart();
+            miniStart = true;
+            minigameStart();
         }
-        if (miniEnded == true)
+        if (targetTime <= 0.0f && miniStart == true)
         {
+            miniStart = false;
+            miniGame.SetActive(false);
             targetTime = mainTime;
-            miniEnded = false;
         }
     }
 
-    void miniGameStart()
+    void minigameStart()
     {
         miniGame.SetActive(true);
         targetTime = miniTime;
-        targetTime -= Time.deltaTime;
 
         if (targetTime <= 0.0f)
         {
-            miniEnded = true;
+            miniStart = false;
             miniGame.SetActive(false);
+            targetTime = mainTime;
         }
     }
 }
