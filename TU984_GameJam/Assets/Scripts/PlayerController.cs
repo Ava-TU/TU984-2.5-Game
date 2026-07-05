@@ -24,4 +24,12 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Object"))
+        {
+            
+        }
+    }
+
 }

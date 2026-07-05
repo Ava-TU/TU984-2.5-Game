@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObjectFallController : MonoBehaviour
 {
 
-    float wait = 0.1f;
+    float wait = 0.8f;
     public GameObject fallingObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
