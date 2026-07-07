@@ -12,7 +12,6 @@ public class MainTimer : MonoBehaviour
     public bool miniStart;
 
     public GameObject miniGame;
-
     void Start()
     {
         miniStart = false;
