@@ -9,10 +9,14 @@ public class MainTimer : MonoBehaviour
 
     public float targetTime;
 
+    public int randomIndex;
+
     public bool miniStart;
 
     public GameObject[] allMinigames;
     public GameObject miniGame;
+
+    public PlayerController movingPlayer;
 
     void Start()
     {
@@ -25,13 +29,17 @@ public class MainTimer : MonoBehaviour
     {
         targetTime -= Time.deltaTime;
 
-        if (targetTime <= -0.1f && miniStart == false)
+        if (targetTime <= -0.1f && miniStart == false) //if the timer has reached zero and the minigame wasn't played last
         {
             miniStart = true;
             PickMiniGame();
         }
-        if (targetTime <= 0.0f && miniStart == true)
+        if (targetTime <= 0.0f && miniStart == true) //if the timer has reached zero and a minigame was played last
         {
+            if (movingPlayer.playerHit == true)
+            {
+                minigameLost();
+            }
             miniStart = false;
             miniGame.SetActive(false);
             targetTime = mainTime;
@@ -40,9 +48,9 @@ public class MainTimer : MonoBehaviour
 
     void PickMiniGame()
     {
-        int randomIndex = Random.Range(0, allMinigames.Length);
+        randomIndex = Random.Range(0, allMinigames.Length); //picks a random index from the array, deciding which minigame to pick
 
-        if (randomIndex == 0)
+        if (randomIndex == 0) //For Minigame One
         {
             allMinigames[0].SetActive(true);
             miniGame = allMinigames[0];
@@ -50,15 +58,16 @@ public class MainTimer : MonoBehaviour
             miniGame.SetActive(true);
             targetTime = miniTime;
 
-            if (targetTime <= 0.0f)
+            if (targetTime <= 0.0f) //for safety probably not needed
             {
                 miniStart = false;
                 miniGame.SetActive(false);
                 targetTime = mainTime;
             }
+
         }
 
-        if (randomIndex == 1)
+        if (randomIndex == 1) //Minigame Two
         {
             allMinigames[1].SetActive(true);
             miniGame = allMinigames[1];
@@ -72,6 +81,29 @@ public class MainTimer : MonoBehaviour
                 miniGame.SetActive(false);
                 targetTime = mainTime;
             }
+        }
+    }
+
+    void minigameWin()
+    {
+        //Play Winning Animation of selected minigame
+
+        //Proceed to next round
+    }
+
+    void minigameLost()
+    {
+        //Play Losing Animation of selected minigame
+
+        //Take away one heart
+        
+
+        //Proceed to next round
+
+        if (randomIndex == 0)
+        {
+            Debug.Log("Got hit, lose one heart!");
+            movingPlayer.playerHit = false;
         }
     }
 

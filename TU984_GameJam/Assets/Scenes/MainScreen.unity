@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7bc455ac779294a843e23b16c1d345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  playerHit: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,11 +1096,13 @@ MonoBehaviour:
   mainTime: 5
   miniTime: 10
   targetTime: 0
+  randomIndex: 0
   miniStart: 0
   allMinigames:
   - {fileID: 1762685753}
   - {fileID: 1592489185}
   miniGame: {fileID: 1762685753}
+  movingPlayer: {fileID: 527546208}
 --- !u!1 &1320279417
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,16 @@ public class PlayerController : MonoBehaviour
     float horizontalInput;
     float moveSpeed = 10f;
 
+    [SerializeField]
+    public bool playerHit;
+
     Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHit = false;
     }
 
     // Update is called once per frame
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Object"))
         {
-            
+            playerHit = true;
         }
     }
 
