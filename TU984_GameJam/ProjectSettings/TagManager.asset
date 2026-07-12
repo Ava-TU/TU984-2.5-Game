@@ -42,6 +42,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 1Ground
+    uniqueID: 1956961273
+    locked: 0
+  - name: 2Stars
+    uniqueID: 764900465
+    locked: 0
+  - name: 3Moon
+    uniqueID: 135791461
+    locked: 0
+  - name: 4Clouds1
+    uniqueID: 1435309041
+    locked: 0
+  - name: 5Clouds2
+    uniqueID: 3225852055
+    locked: 0
+  - name: 6FarBuildings
+    uniqueID: 3275467783
+    locked: 0
+  - name: 7BG_Buildings
+    uniqueID: 711273019
+    locked: 0
+  - name: 8FG_Buildings
+    uniqueID: 479187791
+    locked: 0
+  - name: 9Wall
+    uniqueID: 710995709
+    locked: 0
+  - name: Player
+    uniqueID: 3602743949
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
