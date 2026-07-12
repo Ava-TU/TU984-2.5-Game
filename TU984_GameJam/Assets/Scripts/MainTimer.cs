@@ -15,7 +15,9 @@ public class MainTimer : MonoBehaviour
 
     public GameObject[] allMinigames;
     public GameObject miniGame;
+
     public GameObject mainBG;
+    public GameObject mainPlayer;
 
     public PlayerController movingPlayer;
 
@@ -34,6 +36,8 @@ public class MainTimer : MonoBehaviour
         {
             miniStart = true;
             mainBG.SetActive(false);
+            mainPlayer.SetActive(false);
+            mainPlayer.transform.position = new Vector3(0, -4, 0);
             PickMiniGame();
         }
         if (targetTime <= 0.0f && miniStart == true) //if the timer has reached zero and a minigame was played last
@@ -45,6 +49,7 @@ public class MainTimer : MonoBehaviour
             miniStart = false;
             miniGame.SetActive(false);
             mainBG.SetActive(true);
+            mainPlayer.SetActive(true);
             targetTime = mainTime;
         }
     }
