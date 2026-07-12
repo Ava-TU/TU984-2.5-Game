@@ -37,7 +37,7 @@ public class HealthUI : MonoBehaviour
             }
             else
             {
-                hearts[i].sprite = brokeHeartSprite;
+                Destroy(hearts[i]);
             }
         }
     }
